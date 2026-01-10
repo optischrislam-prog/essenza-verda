@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@100;300;400;500;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-deep-green: #0D2B1F;
+  --color-gold: #C5A46C;
+  --color-cream: #F8F8F8;
+  --color-light-gray: #E8E8E8;
+  --color-text: #1A1A1A;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-text);
+    font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 10vw, 9rem);
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 6vw, 3rem);
+    font-weight: 300;
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 4vw, 2rem);
+    font-weight: 300;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  a:hover {
+    opacity: 0.7;
+  }
+
+  * {
+    box-shadow: none;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .hero-section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.875rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+
+  .slogan-main {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 10vw, 9rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--color-text);
+  }
+
+  .slogan-accent {
+    color: var(--color-gold);
+  }
+
+  .poetic-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.125rem, 3vw, 1.5rem);
+    font-weight: 300;
+    color: var(--color-gold);
+  }
+
+  .body-text {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+
+  .btn-essence {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid rgba(197, 164, 108, 0.4);
+    font-family: 'Playfair Display', serif;
+    font-size: 0.875rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-essence:hover {
+    border-color: rgba(197, 164, 108, 0.8);
+  }
+
+  .nav-link {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--color-text);
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-link:hover {
+    opacity: 0.6;
+  }
+
+  .nav-link-active {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--color-gold);
+  }
+
+  .card-minimal {
+    background: transparent;
+    padding: 0;
+  }
+
+  .divider {
+    border-top: 1px solid rgba(232, 232, 232, 0.2);
+  }
+
+  .whitespace-lg {
+    height: 5rem;
+  }
+
+  .whitespace-xl {
+    height: 8rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+}
