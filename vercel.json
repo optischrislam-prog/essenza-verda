@@ -2,7 +2,7 @@
   "buildCommand": "npm run build",
   "installCommand": "npm install",
   "framework": "other",
-  "nodeVersion": "20.x",
+
   "functions": {
     "api/index.js": {
       "runtime": "nodejs20.x"
