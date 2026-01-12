@@ -1,9 +1,13 @@
 import { register } from 'node:module';
 import { pathToFileURL } from 'node:url';
+import { join } from 'node:path';
 
-// 1. 注册 TypeScript 运行环境，适配你项目的 ES Module 模式
+// 1. 注册 TypeScript 支持
 register('ts-node/esm', pathToFileURL('./'));
 
-// 2. 导入并导出你真正的后端入口
-import app from '../server/index.ts';
+// 2. 动态定位 server/index.ts 的绝对路径
+const serverPath = join(process.cwd(), 'server', 'index.ts');
+
+// 3. 导入并导出
+import app from serverPath;
 export default app;
