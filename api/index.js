@@ -1,13 +1,9 @@
-// 注入 TypeScript 支持
-require('ts-node').register({ transpileOnly: true });
+import { register } from 'node:module';
+import { pathToFileURL } from 'node:url';
 
-// 尝试加载后端入口
-try {
-    const app = require('../server/index.ts');
-    module.exports = app;
-} catch (error) {
-    console.error('加载后端入口失败:', error);
-    module.exports = (req, res) => {
-        res.status(500).json({ error: 'Server Start Error', details: error.message });
-    };
-}
+// 1. 注册 TypeScript 运行环境，适配你项目的 ES Module 模式
+register('ts-node/esm', pathToFileURL('./'));
+
+// 2. 导入并导出你真正的后端入口
+import app from '../server/index.ts';
+export default app;
